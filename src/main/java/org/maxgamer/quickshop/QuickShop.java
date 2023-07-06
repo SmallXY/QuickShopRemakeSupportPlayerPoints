@@ -75,6 +75,7 @@ import org.maxgamer.quickshop.database.MySQLCore;
 import org.maxgamer.quickshop.database.SQLiteCore;
 import org.maxgamer.quickshop.database.SimpleDatabaseHelper;
 import org.maxgamer.quickshop.economy.Economy_GemsEconomy;
+import org.maxgamer.quickshop.economy.Economy_Points;
 import org.maxgamer.quickshop.economy.Economy_TNE;
 import org.maxgamer.quickshop.economy.Economy_Vault;
 import org.maxgamer.quickshop.integration.SimpleIntegrationManager;
@@ -603,6 +604,10 @@ public class QuickShop extends JavaPlugin implements QuickShopAPI {
                     economy = new Economy_GemsEconomy(this);
                     Util.debugLog("Now using the GemsEconomy economy system.");
                     break;
+                case POINTS:
+                    economy = new Economy_Points(this);
+                    Util.debugLog("Now using the Points system.");
+                    break;
                 case TNE:
                     economy = new Economy_TNE(this);
                     Util.debugLog("Now using the TNE economy system.");
@@ -876,7 +881,7 @@ public class QuickShop extends JavaPlugin implements QuickShopAPI {
 
         switch (resultReport.getFinalResult()) {
             case DISABLE_PLUGIN:
-                Bukkit.getPluginManager().disablePlugin(this);
+//                Bukkit.getPluginManager().disablePlugin(this);
                 break;
             case STOP_WORKING:
                 setupBootError(new BootError(this.getLogger(), joiner.toString()), true);
@@ -920,7 +925,7 @@ public class QuickShop extends JavaPlugin implements QuickShopAPI {
                     e.printStackTrace();
                 }
                 // Halt the process, kill the server
-                Runtime.getRuntime().halt(-1);
+//                Runtime.getRuntime().halt(-1);
             default:
                 break;
         }

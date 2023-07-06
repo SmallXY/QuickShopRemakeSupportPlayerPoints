@@ -32,7 +32,8 @@ public enum EconomyType {
     //RESERVE(1),
     //MIXED(2),
     GEMS_ECONOMY(3),
-    TNE(4);
+    TNE(4),
+    POINTS(5);
 
     private final int id;
 
